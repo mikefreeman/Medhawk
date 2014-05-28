@@ -20,6 +20,10 @@ angular.module('starter', [
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    setTimeout(function() {
+      navigator.splashscreen.hide();
+    }, 2000);
   });
 })
 
@@ -112,5 +116,5 @@ angular.module('starter', [
     })
 
 
-  $urlRouterProvider.otherwise('/share');
+  $urlRouterProvider.otherwise('/drugs/meds');
 })
