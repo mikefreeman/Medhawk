@@ -1,0 +1,31 @@
+<ion-header-bar class="bar-positive">
+  <button class="button button-icon icon ion-navicon"></button>
+  <h1 class="title">Share</h1>
+</ion-header-bar>
+
+
+<ion-content has-header class="padding">
+
+  <div>
+    <h2>Share your State of Wellness</h2>
+  </div>
+
+  <div class="list list-inset">
+    <label class="item item-input">
+      <textarea placeholder="Create your message">{{ tweetMessage }}</textarea>
+    </label>
+  </div>
+
+  <div class="row padding">
+
+    <div class="button button-positive col" ng-click="">
+      <i class="icon ion-social-twitter"></i>
+    </div>
+
+    <div class="button button-positive col col-offset-10" ng-click="">
+      <i class="icon ion-social-facebook"></i>
+    </div>
+   
+  </div>
+
+</ion-content>
