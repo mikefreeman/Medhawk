@@ -1,0 +1,40 @@
+<ion-header-bar class="bar-positive">
+  <button class="button button-icon icon ion-ios7-arrow-back"></button>
+  <h1 class="title">New Drug Entry</h1>
+</ion-header-bar>
+
+<ion-content class="has-header padding">
+  <form name="newDrug">
+    
+    <label class="item item-input drugField">
+      <!-- validation -->
+      <div class="icon ion-alert-circled assertive" ng-show="!drugName.length && newDrug.name.$dirty"></div>
+      <div class="icon ion-ios7-checkmark balanced" ng-show="drugName.length"></div>
+      <!-- end validation -->
+      <span class="input-label">Drug Name</span>
+      <input type="text" ng-model="drugName" name="name" maxlength="20">
+    </label>
+
+    <label class="item item-input drugField">
+      <!-- validation -->
+      <div class="icon ion-alert-circled assertive" ng-show="!company.length && newDrug.company.$dirty"></div>
+      <div class="icon ion-ios7-checkmark balanced" ng-show="company.length"></div>
+      <!-- end validation -->
+      <span class="input-label">Company Name</span>
+      <input type="text" placeholder="" ng-model="company" name="company" maxlength="20">
+    </label>
+
+    <label class="item item-input drugField">
+      <!-- validation -->
+      <div class="icon ion-alert-circled assertive" ng-show="!twitter.length && newDrug.twitter.$dirty"></div>
+      <div class="icon ion-ios7-checkmark balanced" ng-show="twitter.length"></div>
+      <!-- end validation -->
+      <span class="input-label">Company Twitter</span>
+      <input type="text" placeholder="" ng-model="twitter" name="twitter" maxlength="20">
+    </label>
+
+    <button ng-click="addDrug(drugName, company, twitter)" class="button button-block button-positive ion-plus" ng-disabled="!drugName.length || !company.length || !twitter.length">
+      Add new drug
+    </button>
+  </form>
+</ion-content>
