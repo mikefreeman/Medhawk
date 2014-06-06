@@ -11,6 +11,13 @@ You can get it using npm like so:
 $ sudo npm install -g ionic
 ```
 
+You will need bower to install client dependencies:
+
+cd into the client directory
+```bash
+$ bower install
+``` 
+
 Then run:
 
 ```bash
@@ -21,22 +28,19 @@ $ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-dial
 
 $ ionic build ios
 $ ionic emulate ios
-
-
 ```
 
 to emulate. After building you can open the project in xcode for final
 packaging as an ios application.
 
 
-You will need bower to install client dependencies:
-
-cd into the client directory
-```bash
-$ bower install
-``` 
 
 ## File changes
-All app changes are done in the "www" directory 
-  within the file www/app/config.js, change SERVERPATH to the server address you want
-  
+
+in file: client/www/app/config.js, 
+  change SERVERPATH to the server address you want
+  change Twitter authentication
+
+move client/assets/icons to client/platforms/ios/MedHawk/Resources/icons
+
+move client/assets/splash to client/platforms/ios/MedHawk/Resources/splash

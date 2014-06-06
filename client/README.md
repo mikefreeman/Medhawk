@@ -11,6 +11,13 @@ You can get it using npm like so:
 $ sudo npm install -g ionic
 ```
 
+You will need bower to install client dependencies:
+
+cd into the client directory
+```bash
+$ bower install
+``` 
+
 Then run:
 
 ```bash
@@ -27,12 +34,6 @@ to emulate. After building you can open the project in xcode for final
 packaging as an ios application.
 
 
-You will need bower to install client dependencies:
-
-cd into the client directory
-```bash
-$ bower install
-``` 
 
 ## File changes
 
@@ -43,7 +44,3 @@ in file: client/www/app/config.js,
 move client/assets/icons to client/platforms/ios/MedHawk/Resources/icons
 
 move client/assets/splash to client/platforms/ios/MedHawk/Resources/splash
-
-
-
-  
