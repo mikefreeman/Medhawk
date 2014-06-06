@@ -1,31 +1,52 @@
 <ion-header-bar class="bar-positive">
-  <button class="button button-icon icon ion-ios7-arrow-back"></button>
+  <button class="button button-icon icon ion-ios7-arrow-back" ng-click="back()"></button>
   <h1 class="title">Share</h1>
+  <button class="button button-clear icon ion-loading-c" ng-show="loading"></button>
 </ion-header-bar>
 
 
 <ion-content has-header class="padding">
 
   <div>
-    <h2><b>Share your State of Wellness</b></h2>
+    <h3 class="shareTitle">Make yourself heard!</h3>
   </div>
 
   <div class="list list-inset">
-    <label class="item item-input">
-      <textarea placeholder="Create your message">{{ tweetMessage }}</textarea>
+    <label ng-class="{invalid: (tweetMessage.message.length > 112)}" class="item item-input tweetMessage">
+      <textarea placeholder="Create your message" ng-model="tweetMessage.message"></textarea>
     </label>
+    <!-- validation -->
+    <div class="errorMsg" ng-show="(tweetMessage.message.length > 112)">
+      <i class="icon ion-alert-circled assertive"></i>
+      Exceeded tweet character limit
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col col-60">
+      <h5>Suggested tags:</h5>
+      <div class="">
+        <div class="suggestedTags"  ng-repeat="(tag, selected) in tags">
+          {{ tag }}
+        </div>
+      </div>
+    </div>
+    <div class="col col-40">
+      <div class="box">
+        <img class="emojiEven" src="img/emojis/{{ emoji }}" ng-show="emoji">
+      </div>
+    </div>
   </div>
 
   <div class="row">
-
-    <div class="col col-50" ng-click="">
-      <img src="../img/twitter.jpg">
+    <div class="col">
+      <button class="button button-block" ng-disabled="(tweetMessage.message.length > 112)" ng-click="doLogin()">
+        <div class="twitter">
+          <i class="ion-social-twitter twitterBlue"></i>
+          Tweet
+        </div>
+      </button>
     </div>
-
-    <div class="col col-50" ng-click="">
-      <img src="../img/facebook.jpg">
-    </div>
-   
   </div>
 
 </ion-content>

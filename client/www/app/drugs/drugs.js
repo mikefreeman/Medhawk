@@ -1,6 +1,6 @@
 angular.module('drugs', ['drugServices'])
 
-.controller('DrugCtrl', ['$scope', '$rootScope', '$state', 'drugNames', 'drugEffects', '$q', 'sanitizer', function($scope, $rootScope, $state, drugNames, drugEffects, $q, sanitizer){
+.controller('DrugCtrl', ['$scope', '$rootScope', '$state', 'drugNames', 'drugEffects', '$q', 'sanitizer', '$ionicNavBarDelegate', function($scope, $rootScope, $state, drugNames, drugEffects, $q, sanitizer, $ionicNavBarDelegate){
   $scope.newEffects = [];
   $scope.selectedEffects = [];
 
@@ -25,6 +25,7 @@ angular.module('drugs', ['drugServices'])
     if (_.pluck($scope.effects, 'name').indexOf(effectName) === -1) {
       // add to current list as selected:true
       $scope.effects.push({name: effectName, selected: true});
+      $scope.selectedEffects.push({name: effectName});
       // post new effect to effect collection
       $scope.newEffects.push(drugEffects.postEffect({name: effectName}));
     }
@@ -37,7 +38,7 @@ angular.module('drugs', ['drugServices'])
     } else {
       $scope.selectedEffects.push(selection);
     }
-  }
+  };
 
   // Save selected effects to root scope and navigate to share page
   $scope.navShare = function() {
@@ -53,7 +54,7 @@ angular.module('drugs', ['drugServices'])
           return drugEffects.postEffectToDrug({drugName: $rootScope.drugName, effectName: effectName});
         }).value());
     }).then(function() {
-      $state.go('share.tweet');
+      $state.go('share.visual');
     });
   };
 
@@ -69,7 +70,8 @@ angular.module('drugs', ['drugServices'])
     drugName = sanitizer.sanitizeName(drugName);
 
     // check if drug already exists before sending to server
-    if (drug = _.findWhere($scope.drugs, {name: drugName})) {
+    drug = _.findWhere($scope.drugs, {name: drugName});
+    if (drug) {
       $scope.navEffects(drug);
     } else {
       drug = {
@@ -82,5 +84,9 @@ angular.module('drugs', ['drugServices'])
         $scope.navEffects(drug);
       });
     }
+  };
+
+  $rootScope.back = function() {
+    $ionicNavBarDelegate.back();
   };
 }]);

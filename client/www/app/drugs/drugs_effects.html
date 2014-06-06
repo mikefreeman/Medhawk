@@ -1,5 +1,5 @@
 <ion-header-bar class="bar-positive">
-  <button class="button button-icon icon ion-ios7-arrow-back"></button>
+  <button class="button button-icon icon ion-ios7-arrow-back" ng-click="back()"></button>
   <h1 class="title">Effects</h1>
 </ion-header-bar>
 
@@ -12,7 +12,7 @@
   </div>
   <div class="list list-inset">
     <ul class="">
-      <li class="item item-checkbox"  ng-repeat="effect in effects | filter:query">
+      <li class="item item-checkbox"  ng-repeat="effect in effects | filter:query | orderBy:'name'">
         {{ effect.name }}
         <label class="checkbox">
           <input type="checkbox" ng-model="effect.selected" ng-click="toggleSelection(effect)">
@@ -22,7 +22,7 @@
         </label>
       </li>
     </ul>
-    <button ng-click="customEffect(query)" class="button button-block button-positive ion-plus">
+    <button ng-click="customEffect(query)" ng-disabled="!query.trim().length" class="button button-block button-positive ion-plus">
       Add {{ query }} as effect
     </button>
   </div>

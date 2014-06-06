@@ -1,11 +1,47 @@
-h2 {
+.startContent {
+  text-align: center;
+  padding-top: 35px;
+}
+
+.startHeader {
+  padding-top: 75px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.startHeader h1 {
+  font-size: 30px;
+  color: #0759E2;
+}
+
+.startInstruct {
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.startContent i {
+  font-size: 20px;
+  color: #4F8EF7;
+  margin-right: 10px;
+}
+
+h3 {
   text-align: center;
 }
 
 textarea {
-  height: 150px;
-  font-size: 20px;
+  height: 130px;
+  font-size: 18px;
   line-height: 1.2;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.errorMsg {
+  color: red;
 }
 
 .drugField {
@@ -18,4 +54,86 @@ img {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+
+.emoji {
+  height: 25%;
+  width: 25%;
+}
+
+.twitter {
+  font-weight: bold;
+  font-size: 20px;
+  font-color: #292f33;
+}
+
+.twitterBlue {
+  color: #55ACEE;
+  font-size: 22px;
+}
+
+.button-twitter-login {
+  background-color: #55ACEE;
+}
+
+.white {
+  color: white;
+}
+
+.logo {
+  height: 100%;
+}
+
+.bottom-position {
+  position: absolute;
+  top: 85%;
+  left: 5%;
+  width: 90%;
+}
+
+.left{
+  width: 50px;
+  height: 50px;
+  float:left;
+  text-align: center;
+  padding-top: 12px;
+  background-color: #292F33;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.left i {
+  width:50px;
+  height:50px;
+  font-size: 24px;
+}
+
+.right {
+  color: white;
+  width: 238px;
+  height: 50px;
+  background-color: #55ACEE;
+  float: left;
+  text-align: center;
+  padding-top:15px;
+  font-family:Helvetica;
+  font-size:1.25em;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.shareTitle {
+  color: #0759E2;
+  text-align: center;
+  font-size: 27px;
+}
+
+.suggestedTags {
+  font-size: 16px;
+  padding: 1px;
+}
+
+.emojiEven {
+  width: 100px;
+  height: 100px;
 }
