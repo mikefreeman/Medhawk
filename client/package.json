@@ -1,6 +1,6 @@
 {
   "name": "medhawk",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Medhawk",
   "dependencies": {
     "gulp": "^3.5.6",
