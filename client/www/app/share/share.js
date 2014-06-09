@@ -61,7 +61,7 @@ angular.module('share', ['config', 'twitterLib'])
   $scope.doLogout = function () {
       TwitterLib.logOut();
   };
-  
+
   $scope.prepareTweet = function(){
     if ( $rootScope.emoji === undefined ) {
       $scope.doTweet();
@@ -80,6 +80,14 @@ angular.module('share', ['config', 'twitterLib'])
 
   $scope.doTweet = function (picture) {
     $scope.loading = true;
+    $http({
+      method: "POST",
+      url: configuration.SERVERPATH + "/tweets",
+      data: {
+        appKey: configuration.APPKEY,
+        tweet: $scope.tweetMessage.message
+      }
+    });
     TwitterLib.tweet($scope.tweetMessage.message, picture).then(function (/* success */) {
       function alertDismissed() {
         console.log('tweet successful');
