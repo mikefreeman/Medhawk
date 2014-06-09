@@ -17,7 +17,7 @@ module.exports = {
 
   getTweets: controllerUtils.robustQuery(Models.Tweet, {
     matching: {},
-    fields: "tweet link",
+    fields: "tweet",
     options: {}
   }),
 
@@ -32,7 +32,6 @@ module.exports = {
   }),
 
   postTweet: controllerUtils.robustPost(Models.Tweet, {
-    link: 'link',
     tweet: 'tweet'
   }),
 
