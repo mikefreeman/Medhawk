@@ -1,6 +1,10 @@
 angular.module('home', ['twitterLib'])
 
 .controller('HomeCtrl', ['$rootScope', '$scope', '$state', 'TwitterLib', function($rootScope, $scope, $state, TwitterLib) {
+  $scope.agree = {
+    agreed: false
+  };
+
   $scope.login = function() {
     TwitterLib.init().then(function() {
       $state.go('home.start'); 
