@@ -4,16 +4,26 @@
 </ion-header-bar>
 
 <ion-content class="has-header padding">
-    <div class="startHeader">
-      <h1>Join the Patient Revolution</h1>
-    </div>
-    <div class="startContent">
-        <p class="startInstruct"><i class="ion-medkit"></i> Choose your medication</p>
-        <p class="startInstruct"><i class="ion-clipboard"></i> Choose your adverse effects</p>
-        <p class="startInstruct"><i class="ion-ios7-chatbubble"></i> Tell drug companies what's up</p>
-    </div>
+  <div class="startHeader">
+    <h1>Join the Patient Revolution</h1>
+  </div>
+  <div class="startContent midzone">
+      <p class="startInstruct"><i class="ion-medkit"></i><strong>Step 1:</strong> Choose your medication</p>
+      <p class="startInstruct"><i class="ion-clipboard"></i><strong>Step 2:</strong> Choose your adverse effects</p>
+      <p class="startInstruct"><i class="ion-ios7-chatbubble"></i><strong>Step 3:</strong> Tell drug companies what's up</p>
+  </div>
+
+  <ion-item class="specialBox">
+    <label class="checkbox">
+      <input type="checkbox" ng-model="agree.agreed"/>
+      <div class="track">
+        <div class="handle"></div>
+      </div>
+    </label>
+    <span class="terms">Agree to <a href="#">Terms Agreement</a></span>
+  </ion-item>
 </ion-content>
 
 <div class="bottom-position">
-  <div class="button button-block button-positive" ng-click="start()">START</div>
+  <div class="button button-block button-positive" ng-click="start()" ng-disabled="!agree.agreed">START</div>
 </div>
